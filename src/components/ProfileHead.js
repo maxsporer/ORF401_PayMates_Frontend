@@ -110,14 +110,15 @@ export default function ProfileHead() {
   }
 
   const profilemetricsstyle = {
+
     color:palette.text,
-    horizontalAlign:'center',
+    textAlign:'center',
     verticalAlign:'middle',
     fontSize:12
   }
 
   const icontheme = {
-    color:palette.blk,
+    color:palette.blk
   }
 
   const handletheme = createMuiTheme({
@@ -224,16 +225,23 @@ export default function ProfileHead() {
           </Box>
           <Box display="flex" flexDirection="row" height={140} width="75%" paddingTop='2%' paddingLeft='2%'>
             <Box paddingTop="18%" width="33%">
-              <IconButton
-                  onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
-                    setPopoverTime({ ...popoverTime, anchorEl: event.currentTarget })
-                  }
-                  aria-describedby="PopoverId"
-                  aria-haspopup="true"
-                  >
-                  <AccessTimeIcon style={icontheme}>
-                  </AccessTimeIcon>
-              </IconButton>
+              <Grid
+                container
+                spacing={0}
+                direction="column"
+                alignItems="center"
+                justify="center">
+                <IconButton
+                    onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
+                      setPopoverTime({ ...popoverTime, anchorEl: event.currentTarget })
+                    }
+                    aria-describedby="PopoverId"
+                    aria-haspopup="true"
+                    >
+                    <AccessTimeIcon style={icontheme}>
+                    </AccessTimeIcon>
+                </IconButton>
+              </Grid>
               <Popover
                 id="PopoverTime"
                 open={Boolean(popoverTime.anchorEl)}
@@ -258,14 +266,21 @@ export default function ProfileHead() {
               </Paper>
             </Box>
             <Box paddingTop="18%" width="33%">
-              <IconButton
-                onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
-                  setPopoverDeals({ ...popoverDeals, anchorEl: event.currentTarget })
-                }
-                aria-describedby="PopoverDeals"
-                aria-haspopup="true">
-                <TollIcon style={icontheme}></TollIcon>
-              </IconButton>
+            <Grid
+                container
+                spacing={0}
+                direction="column"
+                alignItems="center"
+                justify="center">
+                <IconButton
+                  onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
+                    setPopoverDeals({ ...popoverDeals, anchorEl: event.currentTarget })
+                  }
+                  aria-describedby="PopoverDeals"
+                  aria-haspopup="true">
+                  <TollIcon style={icontheme}></TollIcon>
+                </IconButton>
+              </Grid>
               <Popover
                 id="PopoverDeals"
                 open={Boolean(popoverDeals.anchorEl)}
@@ -290,15 +305,22 @@ export default function ProfileHead() {
               </Paper>
             </Box>
             <Box paddingTop="18%" width="33%" >
-              <IconButton
-                onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
-                  setPopoverCont({ ...popoverCont, anchorEl: event.currentTarget })
-                }
-                aria-describedby="PopoverCont"
-                aria-haspopup="true">
-                <PeopleIcon style={icontheme}>
-                </PeopleIcon>
-              </IconButton>
+            <Grid
+                container
+                spacing={0}
+                direction="column"
+                alignItems="center"
+                justify="center">
+                <IconButton
+                  onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
+                    setPopoverCont({ ...popoverCont, anchorEl: event.currentTarget })
+                  }
+                  aria-describedby="PopoverCont"
+                  aria-haspopup="true">
+                  <PeopleIcon style={icontheme}>
+                  </PeopleIcon>
+                </IconButton>
+              </Grid>
               <Popover
                 id="PopoverCont"
                 open={Boolean(popoverCont.anchorEl)}

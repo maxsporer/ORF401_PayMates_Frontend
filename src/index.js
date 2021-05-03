@@ -2,12 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Deal from './Deal'
 import reportWebVitals from './reportWebVitals';
 
+import ReactDom from 'react-dom';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <Switch>
+      <Route exact path="/" component={App} />
+      <Route path="/Deal" component={Deal} />
+    </Switch>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 

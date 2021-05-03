@@ -1,23 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
 import ProfileHead from "./components/ProfileHead";
 import DealList from "./components/DealList";
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { Button } from '@material-ui/core';
 
 
 function App() {
 
   return (
     <div className="App">
-      {/* <Router>
-        <Link to="/DealCreator"> hi </Link>
-        <Switch>
-          <Route path="/DealCreator">
-            <About />
-          </Route>
-        </Switch>
-      </Router> */}
       <ProfileHead></ProfileHead>
+      <Link to="/Deal"> <Button>hi</Button></Link>
       <DealList></DealList>
     </div>
   );
