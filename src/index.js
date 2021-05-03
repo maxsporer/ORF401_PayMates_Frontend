@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import Deal from './Deal'
+import CreateDeal from './CreateDeal'
 import reportWebVitals from './reportWebVitals';
 
 import ReactDom from 'react-dom';
@@ -12,8 +13,10 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
-      <Route exact path="/" component={App} />
+      <Route exact path = "/" component={App}/>
+      {/* <Route path="/main" component={App} /> */}
       <Route path="/Deal" component={Deal} />
+      <Route path="/CreateDeal" component={CreateDeal} />
     </Switch>
   </BrowserRouter>,
   document.getElementById('root')

@@ -216,9 +216,11 @@ export default function ProfileHead() {
                   height:'100%',
                   width:"100%"}}
                 >
-                  <Typography style = {{fontSize:10}}>
-                    {acctData.handle}
-                  </Typography>
+                  <Button href="/">
+                    <Typography style = {{fontSize:10}}>
+                      {acctData.handle}
+                    </Typography>
+                  </Button>
                 </Paper>
               </Box>
             </Box>

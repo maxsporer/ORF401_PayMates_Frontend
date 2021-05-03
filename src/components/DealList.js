@@ -16,6 +16,9 @@ import ProfilePic_Kanye from "../assets/ProfilePic_Kanye.jpg"
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
+import { IconButton } from '@material-ui/core';
+import { Link } from 'react-router-dom';
+import InfoIcon from '@material-ui/icons/Info';
 
 import {
     Typography,
@@ -229,7 +232,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: palette.blu,
     position: 'relative',
     overflow: 'auto',
-    maxHeight: 672,
+    maxHeight: 612,
   },
   listSection: {
     backgroundColor: palette.blu,
@@ -300,7 +303,7 @@ export default function DealList() {
                     </Paper>
                   </Box>
                   </Box>
-                  <Box width="75%" paddingTop='2%' paddingLeft='2%'>
+                  <Box width="70%" paddingTop='2%' paddingLeft='5%'>
                     <Paper elevation={2} style={{
                           display: "flex",
                           flexDirection: "column",
@@ -313,6 +316,13 @@ export default function DealList() {
                       <strong>Status : </strong>{account.status}<br></br>
                     </Typography>
                     </Paper>
+                  </Box>
+                  <Box width="10%">
+                    <IconButton
+                      href="/Deal"
+                      aria-haspopup="true">
+                    <InfoIcon style={{color:palette.blk}}/>
+                    </IconButton>
                   </Box>
                 </Box>
             </ListSubheader>
@@ -356,7 +366,7 @@ export default function DealList() {
                         </Paper>
                       </Box>
                   </Box>
-                  <Box width="75%" paddingTop='2%' paddingLeft='2%'>
+                  <Box width="75%" paddingTop='2%' paddingLeft='5%'>
                     <Paper
                       elevation={2} style={{
                       display: "flex",
