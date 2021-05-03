@@ -161,78 +161,97 @@ export default function ProfileHead() {
   return (
     <div>
       <AppBar position="static" style={appbarstyle}>
-        <Toolbar style={toolbarstyle}>
-          <Box height={140} display="flex" flexDirection="row">
-            <Box paddingTop = "50%" height = '50%' width='100%'>
-              <Grid
-                container
-                spacing={0}
-                direction="column"
-                alignItems="center"
-                justify="center">
-                  <Button
-                    style={{verticalAlign:'middle',horizontalAlign:'center',}}
-                    onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
-                      setPopoverId({ ...popoverId, anchorEl: event.currentTarget })
-                    }
-                    startIcon={
-                      <Avatar
-                        alt={acctData.name}
-                        src={acctData.profPic}
-                        style={{
-                        display:'table-cell',
-                        borderStyle:'solid',
-                        borderWidth:'2px',
-                        borderColor:palette.blk,
-                        height:'45px',
-                        width:'45px',
-                        verticalAlign:'middle',
-                        left:'6.25px'}}>
-                      </Avatar>}
-                    />
-              </Grid>
-              <Popover
-                id="PopoverId"
-                open={Boolean(popoverId.anchorEl)}
-                onClose={() => setPopoverId({ ...popoverId, anchorEl: null })}
-                anchorEl={popoverId.anchorEl}
-                anchorOrigin={{
-                  vertical: 'center',
-                  horizontal: 'right',
-                }}
-                transformOrigin={{
-                  vertical: 'center',
-                  horizontal: 'left'}}
-              >
-                {popoverId.child}
-              </Popover>
-              <Box height="25%" width="100%">
-                <Paper elevation={2} style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent:'center',
-                  textAlign:'center',
-                  height:'100%',
-                  width:"100%"}}
-                >
-                  <Typography style = {{fontSize:10}}>
-                    {acctData.handle}
-                  </Typography>
-                </Paper>
-              </Box>
-            </Box>
+        <Toolbar
+        style={toolbarstyle}>
+        <div style={{ height: '140px',width: '80px'}}>
+          <div style={{ height: '30px'}}>
+            <Typography
+            style={{fontSize:11,color:palette.grn}}>
+              viagra
+            </Typography>
+          </div>
+          <Box height='100%' width='25%'>
+          <Grid
+                      container
+                      spacing={0}
+                      direction="column"
+                      alignItems="center"
+                      justify="center">
+          <Button
+            style={{verticalAlign:'middle',horizontalAlign:'center'}}
+            onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
+              setPopoverId({ ...popoverId, anchorEl: event.currentTarget })
+            }
+            aria-describedby="PopoverId"
+            aria-haspopup="true"
+            startIcon={
+              <Avatar
+                alt={acctData.name}
+                src={acctData.profPic}
+                style={{
+                  display:'table-cell',
+                  borderStyle:'solid',
+                  borderWidth:'2px',
+                  borderColor:palette.blk,
+                  height:'50px',
+                  width:'50px',
+                  verticalAlign:'middle',
+                  left:'6.25px'}}
+              ></Avatar>}
+          />
+          </Grid>
+          <Popover
+            id="PopoverId"
+            open={Boolean(popoverId.anchorEl)}
+            onClose={() => setPopoverId({ ...popoverId, anchorEl: null })}
+            anchorEl={popoverId.anchorEl}
+            anchorOrigin={{
+              vertical: 'center',
+              horizontal: 'right',
+            }}
+            transformOrigin={{
+              vertical: 'center',
+              horizontal: 'left'
+            }}
+          >
+             {popoverId.child}
+          </Popover>
+          <div style ={{ width:'100%',height: '30px', display: 'table'}}>
+          <Box height = "100%">
+            <Paper relevation={1} style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent:'center',
+              textAlign:'center',
+              height:'100%',
+              }}>
+            <Typography
+            style={{
+              fontSize:10,
+              color:palette.text,
+              horizontalAlign:'center',
+              verticalAlign:'middle',
+              display:'table-cell'}}>
+                {acctData.handle}
+            </Typography>
+            </Paper>
           </Box>
-          <Box display="flex" flexDirection="row" height={140} width="75%" paddingTop='2%' paddingLeft='2%'>
-            <Box paddingTop="18%" width="33%">
+          </div>
+        </Box>
+        </div>
+        <div style={{ float:'left',width:'100%',height:'100%'}}>
+          <div style = {{ float:'left', width:'32%', height:'100%', display: 'table'}}>
+            <div style = {{verticalAlign:'middle',display:'table-cell'}}>
+              <div style = {{ width:'100%',horizontalAlign:'center',verticalAlign:'middle',display:'inline-block'}}>
               <IconButton
-                  onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
-                    setPopoverTime({ ...popoverTime, anchorEl: event.currentTarget })
-                  }
-                  aria-describedby="PopoverId"
-                  aria-haspopup="true"
-                  >
-                  <AccessTimeIcon style={icontheme}>
-                  </AccessTimeIcon>
+                onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
+                  setPopoverTime({ ...popoverTime, anchorEl: event.currentTarget })
+                }
+                aria-describedby="PopoverId"
+                aria-haspopup="true"
+                >
+                <AccessTimeIcon style={icontheme}>
+                </AccessTimeIcon>
               </IconButton>
               <Popover
                 id="PopoverTime"
@@ -250,14 +269,18 @@ export default function ProfileHead() {
               >
                 {popoverTime.child}
               </Popover>
-              <Paper>
-                <Typography
-                style = {profilemetricsstyle}>
-                  {acctData.avgResponseTimeHr}hr:{acctData.avgResponseTimeMin}min
-                </Typography>
-              </Paper>
-            </Box>
-            <Box paddingTop="18%" width="33%">
+              </div>
+              <div>
+              <Typography
+              style = {profilemetricsstyle}>
+                {acctData.avgResponseTimeHr}hr:{acctData.avgResponseTimeMin}min
+              </Typography>
+              </div>
+            </div>
+          </div>
+          <div style = {{ float:'left', width:'32%', height:'100%', display: 'table'}}>
+            <div style = {{verticalAlign:'middle',display:'table-cell'}}>
+              <div style = {{ width:'100%',horizontalAlign:'center',verticalAlign:'middle',display:'inline-block'}}> 
               <IconButton
                 onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
                   setPopoverDeals({ ...popoverDeals, anchorEl: event.currentTarget })
@@ -282,14 +305,18 @@ export default function ProfileHead() {
               >
                 {popoverDeals.child}
               </Popover>
-              <Paper>
-                <Typography
-                style ={profilemetricsstyle}>
-                  {acctData.numDeals}
-                </Typography>
-              </Paper>
-            </Box>
-            <Box paddingTop="18%" width="33%" >
+              </div>
+              <div>
+              <Typography
+              style ={profilemetricsstyle}>
+                {acctData.numDeals}
+              </Typography>
+              </div>
+            </div>
+          </div>
+          <div style = {{ float:'right', width:'32%', height:'100%', display: 'table'}}>
+            <div style = {{verticalAlign:'middle',display:'table-cell'}}>
+              <div style = {{ width:'100%',horizontalAlign:'center',verticalAlign:'middle',display:'inline-block'}}>
               <IconButton
                 onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
                   setPopoverCont({ ...popoverCont, anchorEl: event.currentTarget })
@@ -315,14 +342,16 @@ export default function ProfileHead() {
               >
                 {popoverCont.child}
               </Popover>
-              <Paper>
-                <Typography
-                style = {profilemetricsstyle}>
-                  {acctData.avgContribution}
-                </Typography>
-              </Paper>
-            </Box>
-          </Box>
+              </div>
+              <div>
+              <Typography
+              style = {profilemetricsstyle}>
+                {acctData.avgContribution}
+              </Typography>
+              </div>
+            </div>
+          </div>
+        </div>
         </Toolbar>
       </AppBar>
     </div>

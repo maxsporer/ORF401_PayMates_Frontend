@@ -59,14 +59,16 @@ const accounts = [
           pic:ProfilePic_Mike,
           name:'Michael Halle',
           handle:'@cupcake',
-          cont:.25
+          cont:.25,
+          status:"Incomplete",
         },
         {
           id:2,
           pic:ProfilePic_Korn,
           name:'Alain Kornhauser',
-          handle:'@professorfinesser',
-          cont:.5
+          handle:'@finesser',
+          cont:.5,
+          status:"Complete"
         }
       ]
   },
@@ -86,14 +88,16 @@ const accounts = [
           pic:ProfilePic_Mike,
           name:'Michael Halle',
           handle:'@cupcake',
-          cont:.25
+          cont:.25,
+          status:"Complete"
         },
         {
           id:2,
           pic:ProfilePic_Korn,
           name:'Alain Kornhauser',
           handle:'@professorfinesser',
-          cont:.5
+          cont:.5,
+          status:"Incomplete"
         }
       ]
   },
@@ -101,7 +105,7 @@ const accounts = [
       id:2,
       pic:ProfilePic_Korn,
       name:'Alain Kornhauser',
-      handle:'@professorfinesser',
+      handle:'@finesser',
       numMates:'99999 mates',
       originatorCont:.25,
       amnt:500,
@@ -113,14 +117,16 @@ const accounts = [
           pic:ProfilePic_Mike,
           name:'Michael Halle',
           handle:'@cupcake',
-          cont:.25
+          cont:.25,
+          status:"Complete"
         },
         {
           id:2,
           pic:ProfilePic_Korn,
           name:'Alain Kornhauser',
           handle:'@professorfinesser',
-          cont:.5
+          cont:.5,
+          status:"Complete"
         }
       ]
   },
@@ -140,14 +146,16 @@ const accounts = [
           pic:ProfilePic_Mike,
           name:'Michael Halle',
           handle:'@cupcake',
-          cont:.25
+          cont:.25,
+          status:"Complete"
         },
         {
           id:2,
           pic:ProfilePic_Korn,
           name:'Alain Kornhauser',
           handle:'@professorfinesser',
-          cont:.5
+          cont:.5,
+          status:"Complete"
         }
       ]
   },
@@ -167,14 +175,16 @@ const accounts = [
           pic:ProfilePic_Mike,
           name:'Michael Halle',
           handle:'@cupcake',
-          cont:.25
+          cont:.25,
+          status:"Complete"
         },
         {
           id:2,
           pic:ProfilePic_Korn,
           name:'Alain Kornhauser',
           handle:'@professorfinesser',
-          cont:.5
+          cont:.5,
+          status:"Complete"
         }
       ]
   },
@@ -194,14 +204,16 @@ const accounts = [
           pic:ProfilePic_Mike,
           name:'Michael Halle',
           handle:'@cupcake',
-          cont:.25
+          cont:.25,
+          status:"Complete"
         },
         {
           id:2,
           pic:ProfilePic_Korn,
           name:'Alain Kornhauser',
           handle:'@professorfinesser',
-          cont:.5
+          cont:.5,
+          status:"Complete"
         }
       ]
   }
@@ -248,7 +260,7 @@ export default function DealList() {
                     backgroundColor:palette.blu,
                     textAlign:'left',
                     fontSize:20}}>
-                <Box height={80} display="flex" flexDirection="row">
+                <Box height={90} display="flex" flexDirection="row">
                   <Box height='100%' width='25%'>
                   <Grid
                       container
@@ -273,57 +285,91 @@ export default function DealList() {
                               left:'6.25px'}}
                           ></Avatar>}
                       />
-                      </Grid>
-                      <Grid >
-                        <Paper style={{textAlign:'center',fontSize:10}}>
+                  </Grid>
+                  <Box height="25%">
+                    <Paper elevation={2} style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent:'center',
+                      textAlign:'center',
+                      height:'100%'
+                      }}>
+                      <Typography style = {{fontSize:10}}>
                         {account.handle}
-                        </Paper>
-                      </Grid>
+                      </Typography>
+                    </Paper>
                   </Box>
-                  <Box width="75%">
-                    <Typography style={{
-                            padding:'10px',
-                            color: palette.text,
-                            fontSize:10}}>
-                              Description : {account.description}<br></br>
-                              Amount : ${account.amnt}<br></br>
-                              Contribution : {100*account.originatorCont}%<br></br>
-                              Status : {account.status}<br></br>
+                  </Box>
+                  <Box width="75%" paddingTop='2%' paddingLeft='2%'>
+                    <Paper elevation={2} style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          justifyContent:'center',
+                          height:'93%'}}>
+                    <Typography style={{padding:'10px',color: palette.text,fontSize:10}}>
+                      <strong>Description : </strong>{account.description}<br></br>
+                      <strong>Amount : </strong>${account.amnt}<br></br>
+                      <strong>Contribution : </strong>{100*account.originatorCont}%<br></br>
+                      <strong>Status : </strong>{account.status}<br></br>
                     </Typography>
+                    </Paper>
                   </Box>
-                    {/* <div style={{float:'left',width:'25%',height:'100%',backgroundColor:palette.blu}}>
-                      
-                    </div>
-                    <div style={{
-                      float:'left',
-                      width:'75%',
-                      backgroundColor:palette.blu}}>
-                        
-                    </div> */}
                 </Box>
             </ListSubheader>
             {account.dealMates.map((dealMates) => (
               <ListItem key={`{DealMates.name}`}>
-                <div>
-                <div>
-                  <Avatar
-                    alt={accounts[dealMates.id].name}
-                    src={accounts[dealMates.id].pic}
-                    style={{
-                    display:'table-cell',
-                    borderStyle:'solid',
-                    borderWidth:'2px',
-                    borderColor:palette.blk,
-                    height:'35px',
-                    width:'35px',
-                    verticalAlign:'middle',
-                    left:'6.25px'}}
-                  ></Avatar>
-                </div>
-                </div>
-                <ListItemText>
-                {dealMates.name}
-                </ListItemText>
+                <Box width="100%" display="flex" flexDirection="row">
+                  <Box height="100%" width="25%">
+                    <Grid
+                        container
+                        spacing={0}
+                        justify="center">
+                        <Button
+                          style={{paddingLeft: '25%',verticalAlign:'middle',horizontalAlign:'center'}}
+                          startIcon={
+                          <Avatar
+                            alt={accounts[dealMates.id].name}
+                            src={accounts[dealMates.id].pic}
+                            style={{
+                            display:'table-cell',
+                            borderStyle:'solid',
+                            borderWidth:'2px',
+                            borderColor:palette.blk,
+                            height:'35px',
+                            width:'35px',
+                            verticalAlign:'middle'}}
+                          >
+                          </Avatar>}
+                        />
+                      </Grid>
+                      <Box height="25%">
+                        <Paper elevation={2} style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          justifyContent:'center',
+                          textAlign:'center',
+                          height:'100%'
+                          }}>
+                          <Typography style = {{fontSize:10}}>
+                            {dealMates.handle}
+                          </Typography>
+                        </Paper>
+                      </Box>
+                  </Box>
+                  <Box width="75%" paddingTop='2%' paddingLeft='2%'>
+                    <Paper
+                      elevation={2} style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent:'center',
+                      height:'98%'}}>
+                      <Typography style={{padding:'10px',color: palette.text,fontSize:10}}>
+                        <strong>Contribution : </strong>{100*dealMates.cont}%<br></br>
+                        <strong>Status : </strong>{dealMates.status}<br></br>
+                      </Typography>
+                    </Paper>
+                  </Box>
+                </Box>
               </ListItem>
             ))}
           </ul>
